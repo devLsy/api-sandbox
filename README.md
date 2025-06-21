@@ -21,11 +21,10 @@
 
 ```
 root-project/
-├── api-common/          # 공통 유틸리티 모듈 (JAR만 생성됨)
-└── api-service/         # 실제 서비스 모듈 (공통 모듈을 참조)
-    ├── menu/            # 예: 메뉴 관리 API
-    ├── auth/            # 예: 인증 API
-    └── file/            # 예: 파일 업로드 API
+├── api-common/ # 공통 유틸리티 모듈 (JAR만 생성됨)
+├── menu-api/ # 예: 메뉴 관리 API
+├── file-api/ # 예: 파일 업로드 API
+└── auth-api/ # 예: 인증 API
 ```
 
 ---
