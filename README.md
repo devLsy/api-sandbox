@@ -21,18 +21,19 @@
 
 ```
 root-project/
+gradle/
+build.gradle
 ├── api-common/ # 공통 유틸리티 모듈 (JAR만 생성됨)
     ├── src/
         ├── main/
             ├── java/
-├── menu-api/ # 예: 메뉴 관리 API
+├── menu-api/ # 예: 메뉴 API 모듈(스프링부트 애플리케이션)
     ├── src/
         ├── main/
             ├── java/
             ├── resources/ 
-├── file-api/ # 예: 파일 업로드 API
-└── auth-api/ # 예: 인증 API
-build.gradle
+├── file-api/ # 예: 파일 API 모듈(스프링부트 애플리케이션)
+    ...
 ```
 ![image](https://github.com/user-attachments/assets/b6e53de3-505c-4759-93c8-f5d98cc33845)
 
