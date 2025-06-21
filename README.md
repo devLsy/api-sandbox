@@ -35,7 +35,7 @@ build.gradle
 ├── file-api/ # 예: 파일 API 모듈(스프링부트 애플리케이션)
     ...
 ```
-![image](https://github.com/user-attachments/assets/b6e53de3-505c-4759-93c8-f5d98cc33845)
+![image](https://github.com/user-attachments/assets/82133bb5-ac7a-4620-8000-9dd412093782)
 
 ---
 
