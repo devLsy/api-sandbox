@@ -1,4 +1,4 @@
-// 멀티 모듈 방식으로 설계
+// 멀티 모듈 방식으로 설계(플러그인은 루트에서는 선언만 하고 하위에서 사용함)
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.1.3' apply false        // 🚀 Spring Boot 플러그인
@@ -37,7 +37,7 @@ subprojects {
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'com.google.cloud.tools.jib'
-
+    // subprojects에서 선언 시 루트의 저장소를 덮어씀(이게 우선순위가 됨)
     repositories {
         mavenCentral()
     }
@@ -46,9 +46,14 @@ subprojects {
         sourceCompatibility = javaVersion
         targetCompatibility = javaVersion
     }
-
+    // 하위 모듈에 공통으로 적용되는 의존성들
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web'
+         // lombok
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
@@ -60,16 +65,35 @@ subprojects {
 
 // api-common 모듈 설정
 project(':api-common') {
-
+    // 일반 JAR은 생성 (다른 모듈에서 공통 코드 사용 가능하도록)
     jar.enabled = true
+    // 실행 가능한 Spring Boot JAR은 생성하지 않음
     bootJar.enabled = false
 
+    // ✅ 공통 모듈은 실행되지 않으며, 컴파일 시 필요한 의존성만 선언합니다.
+    // ※ 실제 런타임 의존성은 이 모듈을 사용하는 쪽에서 반드시 명시해야 합니다.
     dependencies {
-        compileOnly group: 'org.springframework', name: 'spring-webmvc', version: '5.3.17'
-        compileOnly group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.60'
-        compileOnly group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
+        // Spring MVC 관련
+        compileOnly 'org.springframework:spring-webmvc'
 
-        // Jasypt
-        compileOnly group: 'com.github.ulisesbocchio', name: 'jasypt-spring-boot-starter', version: '3.0.4'
+        // Tomcat (내장 서블릿 컨테이너 필요 시)
+        compileOnly 'org.apache.tomcat.embed:tomcat-embed-core'
+
+        // 로깅 인터페이스  (구현체는 사용하는 모듈에서 logback 등으로 구성)
+        compileOnly 'org.slf4j:slf4j-api'
+
+        // Jasypt (암호화/복호화 라이브러리)
+        compileOnly 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'
+
+        // 공통 유틸 라이브러리 (문자열 처리, 파일 등)
+        compileOnly 'org.apache.commons:commons-lang3'
+        compileOnly 'commons-io:commons-io:2.11.0'
+
+        // Redis 연동 관련 유틸 정의 시
+        compileOnly 'org.springframework.boot:spring-boot-starter-data-redis:3.2.4'
+        compileOnly 'io.lettuce:lettuce-core:6.3.2.RELEASE'
+
+        // 유효성 검증 관련 공통 로직 작성 시
+        compileOnly 'org.springframework.boot:spring-boot-starter-validation'
     }
 }
