@@ -73,6 +73,7 @@ root-project/
 - 공통 설정은 `subprojects` 블록에서 일괄 적용
 - `api-common`은 실행 가능 JAR을 만들지 않고, `jar`만 활성화
 - `api-service`는 일반 Spring Boot 애플리케이션으로 실행 가능
+- gradle 설정은 루트에서 일괄적으로 컨트롤함
 
 ---
 
