@@ -34,7 +34,7 @@ root-project/
 └── auth-api/ # 예: 인증 API
 build.gradle
 ```
-![image](https://github.com/user-attachments/assets/9c670351-9b09-4b2f-a712-a7c7ffd06f9e)
+![image](https://github.com/user-attachments/assets/b6e53de3-505c-4759-93c8-f5d98cc33845)
 
 ---
 
