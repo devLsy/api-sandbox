@@ -1,0 +1,75 @@
+// 멀티 모듈 방식으로 설계
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.3' apply false        // 🚀 Spring Boot 플러그인
+    id 'io.spring.dependency-management' version '1.1.3' apply false // 📦 의존성 관리 플러그인
+    id 'com.google.cloud.tools.jib' version '3.4.0' apply false      // 🐳 Docker 이미지 빌드용 플러그인
+}
+
+// 🛠️ 공통 설정 변수 정의
+ext {
+    springBootVersion = '3.1.3'
+    springDependencyManagementVersion = '1.1.3'
+    jibPluginVersion = '3.4.0'
+    javaVersion = JavaVersion.VERSION_17
+    projectVersion = '1.0.0'
+}
+
+// 🏷️ 그룹 ID 및 버전
+group = 'com.lsy'
+version = projectVersion
+
+// ☕ Java 버전 설정
+java {
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+}
+
+// 🌐 의존성 저장소 (모든 모듈 공통)
+repositories {
+    mavenCentral()
+}
+
+// 📁 하위 모듈 공통 설정
+subprojects {
+    // 루트 플러그인 적용
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'com.google.cloud.tools.jib'
+
+    repositories {
+        mavenCentral()
+    }
+
+    java {
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
+}
+
+// api-common 모듈 설정
+project(':api-common') {
+
+    jar.enabled = true
+    bootJar.enabled = false
+
+    dependencies {
+        compileOnly group: 'org.springframework', name: 'spring-webmvc', version: '5.3.17'
+        compileOnly group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.60'
+        compileOnly group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
+
+        // Jasypt
+        compileOnly group: 'com.github.ulisesbocchio', name: 'jasypt-spring-boot-starter', version: '3.0.4'
+    }
+}
