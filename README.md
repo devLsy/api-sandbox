@@ -22,6 +22,10 @@
 ```
 root-project/
 ├── api-common/ # 공통 유틸리티 모듈 (JAR만 생성됨)
+    ├── src/
+        ├── main/
+            ├── java/
+            ├── resources/ 
 ├── menu-api/ # 예: 메뉴 관리 API
 ├── file-api/ # 예: 파일 업로드 API
 └── auth-api/ # 예: 인증 API
