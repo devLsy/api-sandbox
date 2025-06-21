@@ -25,8 +25,11 @@ root-project/
     ├── src/
         ├── main/
             ├── java/
-            ├── resources/ 
 ├── menu-api/ # 예: 메뉴 관리 API
+    ├── src/
+        ├── main/
+            ├── java/
+            ├── resources/ 
 ├── file-api/ # 예: 파일 업로드 API
 └── auth-api/ # 예: 인증 API
 build.gradle
