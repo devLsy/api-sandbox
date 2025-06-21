@@ -1,4 +1,4 @@
-package com.lsy.response;
+package com.lsy.utils.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
