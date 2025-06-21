@@ -1,3 +1,6 @@
 rootProject.name = 'sandbox-api-ver1'
+// 공통 모듈
 include 'api-common'
+// menu-api 모듈
+include 'menu-api'
 

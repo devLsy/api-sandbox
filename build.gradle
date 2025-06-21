@@ -97,3 +97,20 @@ project(':api-common') {
         compileOnly 'org.springframework.boot:spring-boot-starter-validation'
     }
 }
+
+// API 서비스 모듈(추후 file-api, auth-api 등 계속 추가해서 공통적으로 적용 예정)
+def apiModules = [
+        project(':menu-api'),
+        //project(':file-api')...
+]
+// API 서비스 모듈에 공통으로 적용
+configure(apiModules) {
+    jar.enabled = false
+    bootJar.enabled = true
+
+    dependencies {
+        //
+        // 공통 모듈 참조
+        implementation project(':api-common')
+    }
+}
