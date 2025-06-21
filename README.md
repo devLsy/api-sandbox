@@ -1,15 +1,26 @@
 # 🧪 실무형 샌드박스 프로젝트
 
-이 저장소는 실무 프로젝트의 구조와 코드를 **분석, 학습, 개선**하기 위한 **샌드박스형 멀티모듈 프로젝트**입니다.  
-**코드 재사용성 강화, 공통 모듈화, 리팩토링** 등을 중심으로 개발하며, **Gradle 멀티모듈 설계 경험 축적**을 주요 목적으로 합니다.
-실무 프로젝트는 APi가 전부 개별 프로젝트로 되어 있어 관리와 개발의 편의성을 위해 하나의 프로젝트로 통합 후 멀티 모듈로 관리하기로 함
+![Java](https://img.shields.io/badge/Java-17-blue?logo=java)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-3.1.3-success?logo=springboot)
+![Gradle](https://img.shields.io/badge/Gradle-Multi--module-02303A?logo=gradle)
+
+이 저장소는 실무 프로젝트의 구조와 코드를 **분석, 학습, 개선**하기 위한  
+**샌드박스형 멀티모듈 프로젝트**입니다.  
+**코드 재사용성 강화, 공통 모듈화, 리팩토링** 등을 중심으로 개발하며,  
+**Gradle 멀티모듈 설계 경험 축적**을 주요 목적으로 합니다.
+
+기존 실무 프로젝트는 API가 전부 개별 프로젝트로 나뉘어 있어,  
+이를 **하나의 프로젝트로 통합하고 멀티 모듈로 관리**하기로 했습니다.
 
 ---
 
 ## 🧱 프로젝트 구조
 root-project/
-├── api-common/          # 공통 유틸리티 모듈 (JAR만 생성됨)
-└── api-service(menu, auth, file 등)/         # 실제 서비스 모듈 (공통 모듈을 참조)
+├── api-common/ # 공통 유틸리티 모듈 (JAR만 생성됨)
+└── api-service/ # 실제 서비스 모듈 (공통 모듈을 참조)
+├── menu/ # 예: 메뉴 관리 API
+├── auth/ # 예: 인증 API
+└── file/ # 예: 파일 업로드 API
 
 ---
 
@@ -43,8 +54,11 @@ root-project/
 - Java 17
 - Spring Boot 3.1.3
 - Gradle (멀티모듈 구성)
-- JPA / Redis / Validation / Jasypt 등
-- 
+- JPA
+- Redis
+- Validation
+- Jasypt
+
 ---
 
 ## 🛠 주요 Gradle 설정
@@ -63,7 +77,6 @@ root-project/
 - 새로운 모듈 혹은 기능 개발 시 **의미 있는 단위로 커밋**
 - 하나의 모듈을 모두 완성한 뒤, 관련 파일들을 묶어 **단일 커밋**으로 정리하는 방식 사용
 
-- 
 ---
 
 ## 📌 향후 계획
@@ -77,4 +90,3 @@ root-project/
 
 > 🔄 이 프로젝트는 학습과 개선을 반복하며 점차 완성도를 높여가는 실험용 저장소입니다.  
 > 코드는 실무 구조를 반영하되, 자유롭게 테스트하고 리팩토링하는 것을 목적으로 합니다.
-
