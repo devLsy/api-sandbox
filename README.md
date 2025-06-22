@@ -36,7 +36,7 @@ root-project/
     ├── file-api/ # 예: 파일 API 모듈(스프링부트 애플리케이션)
         ...
 ```
-![image](https://github.com/user-attachments/assets/96031e40-82ba-4882-a879-f16759dd06d3)
+![image](https://github.com/user-attachments/assets/2023e60a-1027-46de-b307-96840c594744)
 
 ---
 
