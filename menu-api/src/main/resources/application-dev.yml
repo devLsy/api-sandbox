@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: dev
+
+cors:
+  allowed-origins:
+    - https://kepass-admin-dev.koreanair.com
+    - hhttps://apidev.koreanair.com

@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: prd
+
+cors:
+  allowed-origins:
+    - https://kepass-admin.koreanair.com
+    - https://api.koreanair.com
