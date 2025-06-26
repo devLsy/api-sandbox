@@ -84,6 +84,9 @@ project(':api-common') {
         // Spring MVC 관련
         compileOnly 'org.springframework:spring-webmvc'
 
+        // 프로퍼티 바인딩 자동 완성 및 검증을 위한 Configuration Processor
+        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
         // Tomcat (내장 서블릿 컨테이너 필요 시)
         compileOnly 'org.apache.tomcat.embed:tomcat-embed-core'
 
