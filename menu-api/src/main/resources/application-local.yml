@@ -4,5 +4,14 @@ spring:
 
 cors:
   allowed-origins:
-    - https://localhost:3005
-    - https://localhost:3006
+    - ENC(2MEs9L/78BcUOxDONrByxKwOjok8JI6Ut+wJmUiDNNQ=)
+    - ENC(KgR47MHoW+1bgKfRvDlp3S5CmUUWv2LKixKlPqe2tAc=)
+
+# jasypt 암복호화
+jasypt:
+  encryptor:
+    # JasyptConfig에 정의한 빈 이름
+    bean: jasyptStringEncryptor
+    property:
+      prefix: ENC(
+      suffix: )

@@ -1,4 +1,4 @@
-package com.lsy.utils.cors;
+package com.lsy.config.cors;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +31,7 @@ public class CorsConfig implements WebMvcConfigurer {
     }
 
     // application.yml의 cors 프로퍼티 바인딩용 클래스
+    // @ConfigurationProperties 사용하기 위해 public으로 선언
     @ConfigurationProperties(prefix = "cors")
     @Getter @Setter
     public static class CorsProperties {

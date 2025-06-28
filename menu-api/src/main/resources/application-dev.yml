@@ -4,5 +4,14 @@ spring:
 
 cors:
   allowed-origins:
-    - https://kepass-admin-dev.koreanair.com
-    - hhttps://apidev.koreanair.com
+    - ENC(eBxLvY+h24kbJ2adARizG+zW8aqI+zjSZqIBu0RwcOfQMijAEVWs+2+fkSOV5n9A)
+    - ENC(aBDKyN6IoPip5UXq6T7GA/JL8BulYTiVPF25gH4sUEuA2k9mAwLeLw==)
+
+# jasypt 암복호화
+jasypt:
+  encryptor:
+    # JasyptConfig에 정의한 빈 이름
+    bean: jasyptStringEncryptor
+    property:
+      prefix: ENC(
+      suffix: )
