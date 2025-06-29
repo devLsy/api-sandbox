@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Slf4j
-public class JasyprtConfig {
+public class JasyptConfig {
 
     // vm 옵션으로 전달받은 개인키
     @Value("${jasypt.password}")

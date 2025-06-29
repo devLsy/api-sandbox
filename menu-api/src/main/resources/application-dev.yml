@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: dev
 
   datasource:
     url: ENC(+fy2thu2yTCvHeOuhBZ0PzJmukjX7XXb3U/1JMjer6yr6/zITItybrsE3M/aP2IDXRHPlV6/wM7WlGtK8Ohw6iv1gxFPEXVkuWu5FK0nz51tIXlCls8cYxFCzOnzCpWxW+E57kzSvw0=)
