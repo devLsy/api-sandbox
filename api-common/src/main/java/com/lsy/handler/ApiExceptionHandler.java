@@ -16,7 +16,8 @@ import java.util.List;
 @RestControllerAdvice
 @Slf4j
 public class ApiExceptionHandler {
-
+    
+    // 커스텀 예외
     @ExceptionHandler(value = ConditionException.class)
     public ResponseEntity<CommonErrorResponse> conditionException(ConditionException ce, HttpServletRequest httpServletRequest) {
         LogUtils.logError(ce);
