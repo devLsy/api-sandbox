@@ -2,11 +2,16 @@ spring:
   profiles:
     active: local
 
+  datasource:
+    url: ENC(+fy2thu2yTCvHeOuhBZ0PzJmukjX7XXb3U/1JMjer6yr6/zITItybrsE3M/aP2IDXRHPlV6/wM7WlGtK8Ohw6iv1gxFPEXVkuWu5FK0nz51tIXlCls8cYxFCzOnzCpWxW+E57kzSvw0=)
+    username: ENC(UhvPyFvWGpxjwcs7gUnsWw==)
+    password: ENC(T4Fk4UptRvX4SQiTcHL7Fh1lM6ZkuRP/)
+
 cors:
   allowed-origins:
     - ENC(2MEs9L/78BcUOxDONrByxKwOjok8JI6Ut+wJmUiDNNQ=)
     - ENC(KgR47MHoW+1bgKfRvDlp3S5CmUUWv2LKixKlPqe2tAc=)
-
+    -
 # jasypt 암복호화
 jasypt:
   encryptor:
