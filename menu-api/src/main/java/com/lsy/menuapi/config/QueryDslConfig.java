@@ -1,4 +1,4 @@
-package com.lsy.menuapi;
+package com.lsy.menuapi.config;
 
 import com.querydsl.jpa.JPQLTemplates;
 import com.querydsl.jpa.impl.JPAQueryFactory;
